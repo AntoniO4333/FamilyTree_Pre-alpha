@@ -1,0 +1,64 @@
+/* Фон */
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../Images/Мудрое_дерево.jpg"); /* Путь к изображению */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
+
+/* Стили для формы */
+.ant-form {
+    width: 450px; /* Увеличенный размер */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Белый цвет с прозрачностью */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Тень */
+    backdrop-filter: blur(10px); /* Размытие фона позади формы */
+}
+
+/* Стили заголовка */
+.ant-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000000; /* Темный текст */
+}
+
+.ant-form label {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+/* Стили кнопки */
+.ant-btn-primary {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #1890ff; /* Синий фон */
+    border-color: #1890ff;
+    border-radius: 5px; /* Закругленные углы */
+}
+
+.ant-btn-primary:hover {
+    background-color: #40a9ff; /* Светлее при наведении */
+    border-color: #40a9ff;
+}
+
+/* Поля ввода */
+.ant-input,
+.ant-input-password {
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Уведомления */
+.ant-message-notice {
+    text-align: center;
+}

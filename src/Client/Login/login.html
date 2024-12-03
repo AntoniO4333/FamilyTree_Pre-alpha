@@ -6,22 +6,23 @@
     <title>Login</title>
     <!-- Подключение Ant Design -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd/dist/antd.min.css">
+    <link rel="stylesheet" href="./styles.css"> <!-- Исправленный путь -->
 </head>
 <body>
-    <div id="app" style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5;">
-        <div style="width: 300px; padding: 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 8px;">
-            <h2 style="text-align: center; margin-bottom: 20px;">Login</h2>
+    <div id="root"> <!-- Идентификатор соответствует стилям из CSS -->
+        <div class="ant-form"> <!-- Применяем класс для формы -->
+            <h2>Login</h2>
             <form id="loginForm">
                 <div class="form-item">
                     <label for="username">Username</label>
                     <input id="username" name="username" type="text" class="ant-input" placeholder="Enter your username" required>
                 </div>
-                <div class="form-item" style="margin-top: 15px;">
+                <div class="form-item">
                     <label for="password">Password</label>
                     <input id="password" name="password" type="password" class="ant-input" placeholder="Enter your password" required>
                 </div>
-                <div style="margin-top: 20px; text-align: center;">
-                    <button type="submit" class="ant-btn ant-btn-primary" style="width: 100%;">Login</button>
+                <div>
+                    <button type="submit" class="ant-btn ant-btn-primary">Login</button>
                 </div>
             </form>
         </div>
