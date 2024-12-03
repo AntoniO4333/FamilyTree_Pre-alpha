@@ -1,49 +1,37 @@
-const { createRoot } = ReactDOM;
-const { Button, Form, Input, message } = antd;
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("loginForm");
 
-const App = () => {
-    const onFinish = (values) => {
-        message.success('Login successful: ' + JSON.stringify(values));
-        console.log(values);
-    };
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    const onFinishFailed = (errorInfo) => {
-        message.error('Failed: ' + errorInfo.errorFields[0].errors[0]);
-    };
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-    return (
-        <Form
-            name="login-form"
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            style={{
-                width: 300,
-                background: 'white',
-                padding: '20px',
-                borderRadius: '8px',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
-            }}
-        >
-            <h2 style={{ textAlign: 'center' }}>Login</h2>
-            <Form.Item
-                name="username"
-                rules={[{ required: true, message: 'Please input your username!' }]}
-            >
-                <Input placeholder="Username" />
-            </Form.Item>
-            <Form.Item
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
-            >
-                <Input.Password placeholder="Password" />
-            </Form.Item>
-            <Form.Item>
-                <Button type="primary" htmlType="submit" block>
-                    Login
-                </Button>
-            </Form.Item>
-        </Form>
-    );
-};
+        if (!username || !password) {
+            antd.message.error("Please fill in all fields.");
+            return;
+        }
 
-createRoot(document.getElementById('root')).render(<App />);
+        try {
+            const response = await fetch("/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                antd.message.success("Login successful!");
+                console.log("User info:", result);
+                // Перенаправление или другое действие
+            } else {
+                antd.message.error("Invalid username or password.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            antd.message.error("Something went wrong. Please try again.");
+        }
+    });
+});
