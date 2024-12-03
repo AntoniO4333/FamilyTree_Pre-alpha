@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (response.ok) {
                 const result = await response.json();
-                antd.message.success("Login successful!");
+                antd.message.success(result.message);
                 console.log("User info:", result);
-                // Перенаправление или другое действие
+                // Например, редирект на другую страницу
+                window.location.href = "/dashboard";
             } else {
-                antd.message.error("Invalid username or password.");
+                const error = await response.json();
+                antd.message.error(error.message);
             }
         } catch (error) {
             console.error("Error:", error);

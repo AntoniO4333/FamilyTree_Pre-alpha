@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, request, jsonify
 
 app = Flask(__name__)
 
@@ -21,6 +21,28 @@ def serve_js():
 @app.route('/Images/<filename>')
 def serve_images(filename):
     return send_from_directory("../../src/Client/Images", filename)
+
+
+
+# Имитация базы данных
+users = {
+    "johndoe": "password123",
+    "janedoe": "securepass",
+    "admin": "adminpass"
+}
+
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+
+    if username in users and users[username] == password:
+        return jsonify({"message": "Login successful", "user": username}), 200
+    else:
+        return jsonify({"message": "Invalid username or password"}), 401
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
