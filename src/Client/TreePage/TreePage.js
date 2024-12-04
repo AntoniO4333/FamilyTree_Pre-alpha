@@ -5,7 +5,7 @@ document.getElementById('user-login').innerText = userLogin;
 // Обработка кнопки выхода
 document.getElementById('logout-button').addEventListener('click', () => {
   localStorage.removeItem('userLogin');
-  window.location.href = '/login.html';
+  window.location.href = '/';
 });
 
 // Моковые данные о членах семьи
