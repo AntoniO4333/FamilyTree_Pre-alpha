@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Подключение React и ReactDOM -->
+    <title>Register</title>
     <script src="https://cdn.jsdelivr.net/npm/react@17/umd/react.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.production.min.js"></script>
     <!-- Подключение Ant Design -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@4.16.13/dist/antd.min.css">
     <link rel="stylesheet" href="./styles.css">
-</head> 
+</head>
 <body>
     <div id="root">
         <div class="ant-form">
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-                <button class="text-button" onclick="window.location.href='register.html'">Sign Up</button>
+                <button class="text-button" onclick="window.location.href='/'">Log In</button>
             </div>
-            <h2>Login</h2>
-            <form id="loginForm">
+            <h2>Register</h2>
+            <form id="registerForm">
                 <div class="form-item">
-                    <label for="username">Username</label>
-                    <input id="username" name="username" type="text" class="ant-input" placeholder="Enter your username" required>
+                    <label for="login">Login</label>
+                    <input id="login" name="login" type="text" class="ant-input" placeholder="Enter your login" required>
                 </div>
                 <div class="form-item">
                     <label for="password">Password</label>
                     <input id="password" name="password" type="password" class="ant-input" placeholder="Enter your password" required>
                 </div>
+                <div class="form-item">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" class="ant-input" placeholder="Enter your email" required>
+                </div>
+                <div class="form-item">
+                    <label for="fullname">Full Name</label>
+                    <input id="fullname" name="fullname" type="text" class="ant-input" placeholder="Enter your full name">
+                </div>
                 <div>
-                    <button type="submit" class="ant-btn ant-btn-primary">Login</button>
+                    <button type="submit" class="ant-btn ant-btn-primary">Register</button>
                 </div>
             </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/antd@4.16.13/dist/antd.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
