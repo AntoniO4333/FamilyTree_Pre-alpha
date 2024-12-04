@@ -37,15 +37,28 @@ def login():
 def register():
     return send_from_directory("../../src/Client/Login", "register.html")
 
+# Маршрут для страницы древа
+@app.route("/TreePage.html")
+def treepage():
+    return send_from_directory("../../src/Client/TreePage", "TreePage.html")
+
 # Маршрут для CSS-файлов
 @app.route('/styles.css')
 def serve_css():
     return send_from_directory("../../src/Client/Login", "styles.css")
 
+@app.route('/TreePage.css')
+def tree_css():
+    return send_from_directory("../../src/Client/TreePage", "TreePage.css")
+
 # Маршрут для JS-файлов
 @app.route('/script.js')
 def serve_js():
     return send_from_directory("../../src/Client/Login", "script.js")
+
+@app.route('/TreePage.js')
+def tree_js():
+    return send_from_directory("../../src/Client/TreePage", "TreePage.js")
 
 # Маршрут для изображений
 @app.route('/Images/<filename>')
